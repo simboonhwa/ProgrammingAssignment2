@@ -1,49 +1,50 @@
-## Put comments here that give an overall description of what your
-## functions do
+###################################################################
+##
+## CLASS: 	makeCacheMatrix is an object class. An instance is 
+		created when it is initialised
+## METHOD: 	set, get (to set or return the matrix) 
+##		setinv, getinv (to set or return the inverse matrix) 
+## ATTRIBUTE: 	m (to store the inverse matrix)
+##
+## eg. 	matrixobject <- makeCacheMatrix(mymatrix)
+##      ^ instance	^ class
+##
+##	matrixobject$get()
+##		     ^ method
+###################################################################
 
-## Write a short comment describing this function
-
-<<<<<<< HEAD
 makeCacheMatrix <- function(x = matrix()) {
-	m <- matrix(); 
-=======
-makeCacheMatrix <- function(x = numeric()) {
         m <- NULL;
->>>>>>> origin/master
         set <- function(y) {
                 x <<- y
                 m <<- NULL
         }
-<<<<<<< HEAD
+        getinv <- function() m
+        setinv <- function(inv) m <<- inv
         get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
         list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
-=======
-        getmean <- function() x
-        setmean <- function(mean) m <<- mean
-        get <- function() m
-        list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
-
->>>>>>> origin/master
+             setinv = setinv,
+             getinv = getinv)
 }
 
-
-## Write a short comment describing this function
+###################################################################
+##
+## FUNCTION:	cachsolve is a function that will evaluate 
+##		makeCacheMatrix instance and either compute and
+##		store or return the inverse matrix
+## Return: 	Inverse matrix
+##
+###################################################################
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-	        m <- x$getmean()
-        if(!is.null(m)) {
+	        m <- x$getinv()
+        
+	if(!is.null(m)) {
                 message("getting cached data")
                 return(m)
         }
         data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
+        m <- solve(data, ...)
+        x$setinv(m)
         m
 }

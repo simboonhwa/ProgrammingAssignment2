@@ -1,0 +1,9 @@
+source("cachematrix.R")
+matrixobject <- matrix(1:4,2,2)
+mymatrix <- matrix(1:4,2,2)
+matrixobject <- makeCacheMatrix(mymatrix)
+cacheSolve(matrixobject)
+matrixobject2 <- makeCacheMatrix()
+matrixobject2$set(matrix(1:4,2,2))
+
+
