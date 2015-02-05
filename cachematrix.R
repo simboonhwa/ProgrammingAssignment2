@@ -1,10 +1,13 @@
 ###################################################################
 ##
 ## CLASS: 	makeCacheMatrix is an object class. An instance is 
-		created when it is initialised
+##		created when it is initialised
+##
+## ARGUMENT:	Matrix object
+##
 ## METHOD: 	set, get (to set or return the matrix) 
 ##		setinv, getinv (to set or return the inverse matrix) 
-## ATTRIBUTE: 	m (to store the inverse matrix)
+## ATTRIBUTE: 	m (to store value of the inverse matrix)
 ##
 ## eg. 	matrixobject <- makeCacheMatrix(mymatrix)
 ##      ^ instance	^ class
@@ -32,7 +35,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## FUNCTION:	cachsolve is a function that will evaluate 
 ##		makeCacheMatrix instance and either compute and
 ##		store or return the inverse matrix
+##
+## ARGUMENT:	Matrix object
+##
 ## Return: 	Inverse matrix
+##
+## eg. 	myinvmatrix <- cacheSolve(mymatrix)
+##	^ inverse matrix	   ^ matrix
 ##
 ###################################################################
 
